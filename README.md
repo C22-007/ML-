@@ -74,3 +74,70 @@ deskripsi dataset
 | 75.250000 | 1.051193   | 27.074634  | 54.000000  | 88.650000  | 183.515000 | 39.425000  | 105.375000 | 99.325000  | 103.525000 | 62.350000  | 39.925000  | 24.000000  | 34.325000  | 30.000000  | 18.800000  | 27.118085  |
 | max       | 1.070408   | 38.968420  | 81.000000  | 114.300000 | 197.485000 | 43.962500  | 121.912500 | 121.450000 | 115.562500 | 71.875000  | 44.350000  | 27.000000  | 40.512500  | 34.050000  | 20.600000  | 33.515350  |
 
+visualisasin data
+
+histogram chart 
+
+![MSE](https://github.com/C22-007/ML-/blob/main/image%20capstone/download%20(2).png?raw=True)
+
+relasi setiap variable 
+
+![MSE](https://github.com/C22-007/ML-/blob/main/image%20capstone/download%20(1).png?raw=True)
+
+distribusi pada variable bodyfat
+
+![MSE](https://github.com/C22-007/ML-/blob/main/image%20capstone/download.png?raw=True)
+
+melihat pairplot pada setiap variable dengan variable bodyfat
+
+![MSE](https://github.com/C22-007/ML-/blob/main/image%20capstone/pairplot%201.png?raw=True)
+![MSE](https://github.com/C22-007/ML-/blob/main/image%20capstone/pairplot%202.png?raw=True)
+![MSE](https://github.com/C22-007/ML-/blob/main/image%20capstone/pairplot%203.png?raw=True)
+
+
+
+selain itu juga kita mengecek untuk apakah ada data outlier 
+![MSE](https://github.com/C22-007/ML-/blob/main/image%20capstone/boxplot%201.png?raw=True)
+
+![MSE](https://github.com/alpiansyah1204/ml-terapan-s1/blob/main/image/outlier.jpeg?raw=True)
+
+bisa dilihat dari gambar di atas data yang dipakai harus ada diantara -1.5(Q3-Q1) dan 1.5(Q3-Q1) atau bisa ditulis 
+-1.5(Q3-Q1)<data<1.5(Q3-Q1)
+
+setelah data outlier dibersihkan 
+![MSE](https://github.com/C22-007/ML-/blob/main/image%20capstone/boxplot%202.png?raw=True)
+
+
+## Data Preparation
+Sebelum datasetnya di latih atau training, dari model sebelumnya perlu melakukan encoding lalu pemisahan data antara data latih dan test agar data dapat dilatih.
+
+
+#### Train-Test Split
+Proses splitting data atau pembagian dataset menjadi data latih (train) dan data uji (test) merupakan hal yang harus dilakukan sebelum melakukan pemodelan supervised. Hal ini karena data uji berperan sebagai data baru yang benar-benar belum pernah dilihat oleh model sebelumnya sehingga informasi yang terdapat pada data uji tidak mengotori informasi yang terdapat pada data latih, alasan lain mengapa menggunakan train test split karena untuk efisiensi dan tidak melakukan data leakage ketika melakukan scaling. pada proyek kali ini kita membagi data menjadi 80:20 dengan random state = 93 
+
+## Modeling
+
+pada proyek yang dibuat kali ini, digunakan model algoritma mechine learning yaitu Machine Learning yaitu bayessianridge model tersebut dipilih karena tujuanya ingin memprediksi regresi. 
+
+- pada BayesianRidge kita hanya menggunakan fungsi fit tanpa tambahan parameterlain 
+`bay = BayesianRidge().fit(X_train, y_train)`
+  - kelebihan pada algoritma ini yaitu mendapatkan pendekatan yang sepenuhnya matematis di mana Anda dapat dengan mudah memasukkan pengetahuan sebelumnya tentang domain masalah. Ini berfungsi dengan baik saat Anda memiliki sedikit data dan akan memberi Anda lebih dari sekadar prediksi; itu akan memberi Anda distribusi probabilitas penuh atas semua kemungkinan model linier, yang memungkinkan Anda untuk melakukan hal-hal seperti interval kepercayaan, penghindaran risiko, ... Selain itu, ini sangat cocok untuk pendekatan online karena Anda selalu dapat memasukkan lebih banyak data tanpa perlu menyimpan semua data sebelumnya; yang Anda butuhkan hanyalah model posterior saat ini.
+  - kekurangan pada bayessionridge Menemukan prior yang baik bisa jadi sulit (walaupun saya menemukan prior informasi minimal bekerja dengan baik dalam praktiknya) dan ketika Anda memiliki banyak data dan hanya peduli untuk mempelajari satu model alih-alih distribusi model, Anda akan berakhir dengan pada dasarnya model yang sama dengan jenis regresi linier lainnya (dengan jumlah data yang cukup besar, pendekatan frequentist dan Bayesian cenderung menyatu dengan model yang sama).
+  
+  
+## Evaluation
+- R-Squared (coefficient of determination).
+ -Disini saya menggunakan Metric Evaluation yaitu R^2_score atau R-squared. R-Squared itu sendiri adalah skor terbaik yang mungkin adalah 1,0 dan bisa negatif (karena modelnya bisa sewenang-wenang lebih buruk). Sebuah model konstan yang selalu memprediksi nilai yang diharapkan dari y, mengabaikan fitur input, akan mendapatkan skor 0,0.
+  - untuk persamaannya seperti ini
+ 
+    - ![R2-SQUARED MACHINE LEARNING](https://user-images.githubusercontent.com/64582353/135482517-1f589eb6-d59f-4872-8d9d-eddd673c1124.png)
+- **Kelebihannya**
+  - dapat memprediksi hasil di masa depan atau pengujian hipotesis , berdasarkan informasi terkait lainnya.
+  - memberikan ukuran seberapa baik hasil yang diamati direplikasi oleh model, berdasarkan proporsi variasi total hasil yang dijelaskan oleh model.
+  - sangat cocok untuk metrics akurasi pada model Regresi.
+- **Kekurangan**
+  - tidak menunjukan apakah regresi yang benar digunakan
+  - tidak dapat memberitahu apakah model tersebut overfit/underfit dan lainnya.
+  
+  
+ nilai yang didapat dari algortima Bayesian linear regression? yaitu 0.9966827666254439
