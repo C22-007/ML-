@@ -1,4 +1,4 @@
-# Machine Learning - Rizqi Alpiansyah
+# Machine Learning - C22-007
 
 ## Domain Proyek
 Project Machine Learning : membuat model Predictive Analysis, menggunakan dataset yang berdomain kesehatan mengenai bodyfat.
