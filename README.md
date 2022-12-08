@@ -12,7 +12,7 @@ Referensi: [Gender-based approach to estimate the human body fat percentage usin
 ## Business Understanding
 ### Problem Statements
 - Variable apa saja yang berpengaruh pada bodyfat seseorang ?
-- Apakah variable yang ada pada dataset dapat tepat memprediksi diabetes secara tepat ?
+- Apakah variable yang ada pada dataset dapat tepat memprediksi bodyfat secara tepat ?
  
 ### Goals
 - Mengetahui variable apa saja yang dapat mempengaruhi seseorang memiliki bodyfat berlebih
@@ -24,7 +24,7 @@ Untuk mendapatkan model mechine learning pada prediksi diabetes yang saya buat. 
 
 ## Data Understanding
 Dataset yang saya gunakan merupakan dataset survey 253.680 orang responden yang sudah bersih. Dataset ini terdiri dari 22 kolom (variabel) yang semuanya bertipe data float64.
-Sumber: [Diabetes Health Indicators Dataset](https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset?select=diabetes_binary_health_indicators_BRFSS2015.csv).
+
 
 Variabel - variabel yang terdapat di Dataset :
 - Density = berat dalam air
